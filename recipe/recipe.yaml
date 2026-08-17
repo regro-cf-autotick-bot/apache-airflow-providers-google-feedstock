@@ -23,12 +23,11 @@ requirements:
   run:
     - python >=${{ python_min }}
     # temporarily constrain to earlier airflow and task-sdk to prevent solver troubles
-    - apache-airflow >=2.11.0,<3.1.3
-    - apache-airflow-task-sdk <1.1.3
-    
+    - apache-airflow >=2.11.0
+
     - apache-airflow-providers-common-compat >=1.13.0
     - apache-airflow-providers-common-sql >=1.32.0
-    # more restrictive for python >=3.14
+    # tightest of upstream's floors (python >=3.14)
     - asgiref >=3.11.1
     - dill >=0.2.3
     - gcloud-aio-auth >=5.2.0
@@ -43,18 +42,15 @@ requirements:
     - google-auth-httplib2 >=0.0.1
     - google-cloud-aiplatform >=1.98.0
     # start google-cloud-aiplatform[evaluation]
-    - pandas >=1.0.0
     - scikit-learn <1.6.0
     - jsonschema
     - ruamel.yaml
     - pyyaml
     - litellm >=1.72.4
     # end google-cloud-aiplatform[evaluation]
-    # more restrictive for python >=3.13
+    # tightest of upstream's floors (python >=3.13,<3.14)
     - ray-default >=2.49.0
-    # start ray[default]
-    # end ray[default]
-    # more restrictive for python >=3.13
+    # tightest of upstream's floors (python >=3.13)
     - google-cloud-bigquery-storage >=2.33.0
     - google-cloud-alloydb >=0.4.0
     - google-cloud-automl >=2.12.0
@@ -98,17 +94,18 @@ requirements:
     - httpx >=0.25.0
     - looker-sdk >=22.4.0,!=24.18.0
     - pandas-gbq >=0.7.0
-    # more restrictive for python >=3.14
+    # tightest of upstream's floors (python >=3.14)
     - pandas >=2.3.3
     - proto-plus >=1.26.0
-    # more restrictive for python >=3.14
+    # tightest of upstream's floors (python >=3.14)
     - pyarrow >=22.0.0
     - python-slugify >=7.0.0
     - sqlalchemy-bigquery >=1.2.1
     - sqlalchemy-spanner >=1.6.2
     - tenacity >=8.3.0
     - immutabledict >=4.2.0
-    - types-protobuf !=5.29.1.20250402,>=5.27.0
+    - types-protobuf >=5.27.0,!=5.29.1.20250402
+    - apache-airflow-task-sdk <1.1.3
 
 tests:
   - python:
